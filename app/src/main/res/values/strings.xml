@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">gceresults</string>
+    <string name="app_title">GCE Results</string>
+    <string name="app_nav_items_result">Results released?</string>
+    <string name="app_nav_items_search_name">Search name only</string>
+    <string name="app_nav_items_search_center_number">Search center number</string>
+    <string name="app_nav_items_search_center_name">Search center name</string>
+    <string name="app_nav_items_search_name_center">Search name and center</string>
+    <string name="app_nav_items_search_papers_passed">Search papers passed</string>
+</resources>
