@@ -16,6 +16,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.dezzy.gceresults.ui.screens.search.SearchCenterName
+import com.dezzy.gceresults.ui.screens.search.SearchCenterNumber
+import com.dezzy.gceresults.ui.screens.search.SearchNameAndCenter
+import com.dezzy.gceresults.ui.screens.search.SearchNameOnly
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -26,11 +30,14 @@ fun TabRow(selectedTabIndex: Int, onTabSelected: (Int) -> Unit) {
         tabItems.size
     }
     val scope = rememberCoroutineScope()
-//    LaunchedEffect(selectedTabIndex) {
-//        pagerState.animateScrollToPage(selectedTabIndex)
-//    }
+
     LaunchedEffect(pagerState.currentPage, pagerState.isScrollInProgress) {
         onTabSelected(pagerState.currentPage)
+    }
+    LaunchedEffect(selectedTabIndex) {
+        if (selectedTabIndex != pagerState.currentPage && !pagerState.isScrollInProgress) {
+            pagerState.scrollToPage(selectedTabIndex)
+        }
     }
 
     Column(
@@ -56,14 +63,14 @@ fun TabRow(selectedTabIndex: Int, onTabSelected: (Int) -> Unit) {
         HorizontalPager(
             state = pagerState,
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
+                .fillMaxSize(),
+            verticalAlignment = Alignment.Top
         ) { index ->
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = tabItems[index].title)
+            when(index) {
+                0 -> SearchNameAndCenter()
+                1 -> SearchNameOnly()
+                2 -> SearchCenterNumber()
+                3 -> SearchCenterName()
             }
         }
     }

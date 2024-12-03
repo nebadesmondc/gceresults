@@ -21,10 +21,7 @@ fun navigationItems(): List<NavigationItem> {
         ),
         NavigationItem(
             title = stringResource(R.string.app_nav_items_search_center_name),
-        ),
-        NavigationItem(
-            title = stringResource(R.string.app_nav_items_search_papers_passed),
-        ),
+        )
     )
 }
 

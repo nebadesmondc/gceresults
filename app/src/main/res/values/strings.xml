@@ -7,4 +7,10 @@
     <string name="app_nav_items_search_center_name">Search center name</string>
     <string name="app_nav_items_search_name_center">Search name and center</string>
     <string name="app_nav_items_search_papers_passed">Search papers passed</string>
+    <string name="text_field_center_number">Enter Center Number</string>
+    <string name="text_field_school_name">Enter School Name</string>
+    <string name="text_field_name">Enter Name</string>
+    <string name="text_field_characters_left">characters left</string>
+    <string name="text_field_select_level">Select Level</string>
+    <string name="button_fetch_result">FETCH RESULT</string>
 </resources>
