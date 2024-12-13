@@ -1,11 +1,10 @@
 package com.dezzy.gceresults.ui.components
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -16,11 +15,9 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -69,6 +66,7 @@ fun CenterNameInput(centerName: String, onValueChanged: (String) -> Unit) {
         label = { Text(stringResource(R.string.text_field_school_name)) },
         modifier = Modifier.fillMaxWidth()
     )
+    Spacer(Modifier.height(16.dp))
 }
 
 @Composable
@@ -79,11 +77,12 @@ fun NameInput(name: String, onValueChanged: (String) -> Unit) {
         label = { Text(stringResource(R.string.text_field_name)) },
         modifier = Modifier.fillMaxWidth()
     )
+    Spacer(Modifier.height(16.dp))
 }
 
 @Composable
 fun YearInput(year: String, onValueChanged: (String) -> Unit) {
-    TextField(
+    OutlinedTextField(
         value = year,
         onValueChange = { input ->
             if (input.length <= 4 && input.all { it.isDigit() }) {
@@ -108,7 +107,7 @@ fun LevelDropdown(selectedLevel: String, onLevelChanged: (String) -> Unit) {
     var expanded by remember { mutableStateOf(false) }
 
     ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = {expanded = !expanded}) {
-        TextField(
+        OutlinedTextField(
             readOnly = true,
             value = selectedLevel,
             onValueChange = {},
@@ -137,8 +136,10 @@ fun LevelDropdown(selectedLevel: String, onLevelChanged: (String) -> Unit) {
 fun FetchButton(onClick: () -> Unit, enabled: Boolean = false) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth().padding(24.dp),
-        enabled = enabled
+        modifier = Modifier.fillMaxWidth(),
+        enabled = enabled,
+        contentPadding = PaddingValues(vertical = 16.dp),
+
     ) {
         Icon(
             imageVector = Icons.Default.Search,

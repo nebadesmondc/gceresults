@@ -1,10 +1,7 @@
 package com.dezzy.gceresults.ui.components
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
@@ -22,7 +19,6 @@ import com.dezzy.gceresults.ui.screens.search.SearchNameAndCenter
 import com.dezzy.gceresults.ui.screens.search.SearchNameOnly
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabRow(selectedTabIndex: Int, onTabSelected: (Int) -> Unit) {
     val tabItems = navigationItems()

@@ -7,9 +7,6 @@ import com.dezzy.gceresults.R
 @Composable
 fun navigationItems(): List<NavigationItem> {
     return listOf(
-//        NavigationItem(
-//            title = stringResource(R.string.app_nav_items_result),
-//        ),
         NavigationItem(
             title = stringResource(R.string.app_nav_items_search_name_center),
         ),
